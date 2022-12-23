@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 
+        selector
+            id
+            class
+            elment/t
+        */
+        /* 
+            combined selector 
+                p#id.class
+                descendent selector
+                direct selector 
+                adjescent selector +
+                general selector ~
+        */
+        .box {
+            border: 1px solid;
+        }
+
+        #bg-teal {
+            background-color: teal;
+        }
+
+        /* 011 */
+        .box p {
+            text-align: justify;
+        }
+
+        /* 002 */
+        body p {
+            /* text-align: center; */
+        }
+
+        /* 001 */
+        p {
+            /* text-align: justify; */
+        }
+
+
+        .container {
+            height: 200px;
+            width: 375px;
+            background-color: teal;
+            color: white;
+            padding: 50px;
+            border: 20px solid black;
+            margin-top: 100px;
+        }
+
+
+        /* 
+            measuremnt units 
+                - px
+                 em
+                 rem
+                 vh
+                 vw
+                 %
+        */
+
+        .parent {
+            background-color: teal;
+            width: 100vw;
+            height: 500px;
+            font-size: 32px;
+        }
+
+        .children {
+            width: 50%;
+            height: 250px;
+            background-color: orange;
+            border: 5px solid black;
+            font-size: 1em;
+            /* em - parent  */
+
+            font-size: 1rem;
+            /* rem - root font size 16px */
+        }
+
+        .second {
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="parent">
+        <div class="children"> children one</div>
+        <div class="children second"> children two </div>
+    </div>
+
+
+    <!-- block level element  -->
+    <div class="container">
+        <div>text content</div>
+    </div>
+
+    <div style="margin-top: 100px;">
+        <a href="">one</a>
+        <a href="">two</a>
+    </div>
+
+
+
+    <div>
+        <div class="box">
+            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, nam. Dicta doloribus perferendis
+                iure
+                commodi aut illum vel ad molestias tempore hic? Accusantium error aliquam aperiam odit ipsa sapiente
+                inventore.</div>
+        </div>
+        <div class="box" id="bg-teal">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, ipsum, quisquam blanditiis ducimus hic
+                repellendus ipsam, iste sequi numquam a molestias? Dicta fugit harum aperiam voluptatum reiciendis
+                placeat quasi atque.</p>
+        </div>
+        <div class="box">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla deleniti culpa nisi, repudiandae
+                consequuntur officiis. Repellat dolore a, architecto quidem dolorum mollitia sapiente, eius aliquid
+                impedit possimus suscipit qui modi.</p>
+        </div>
+    </div>
+
+
+    <div>
+        <h2>outside </h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat facere nulla dolorum maxime quaerat,
+            impedit, similique unde ipsam minus repudiandae iusto assumenda alias debitis distinctio deserunt earum
+            soluta! Iure, placeat.</p>
+
+    </div>
+
+</body>
+
+</html>

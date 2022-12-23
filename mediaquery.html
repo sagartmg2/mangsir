@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .projects {
+            width: 1000px;
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .project {
+            border: 1px solid gray;
+            padding: 10px;
+            width: 300px;
+        }
+
+
+        /* 
+            max-width : 576px;
+            device with can be 576px at max . it can be less thatn 576px
+
+        */
+
+        /* min-with */
+
+        /* 
+        
+            desktop- first  // max- width 
+            mobile- first
+        */
+
+        /* bootstrap-breakpoints */
+
+        /* 
+            576px
+            768px
+            992px
+        */
+
+
+        @media (max-width:576px) {
+            body {
+                background: teal;
+            }
+
+            .projects {
+                flex-direction: column;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>projects </h2>
+    <hr>
+    <div class="projects">
+        <div class="project">
+            <img src="./git.png" alt="git logo" />
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut quo fugit doloribus modi. Impedit odit
+                repellat
+                quibusdam maiores velit mollitia! Amet, vel iusto. Quaerat ad eius fuga delectus veritatis deleniti.</p>
+        </div>
+        <div class="project">
+            <img src="./git.png" alt="git logo" />
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut quo fugit doloribus modi. Impedit odit
+                repellat
+                quibusdam maiores velit mollitia! Amet, vel iusto. Quaerat ad eius fuga delectus veritatis deleniti.</p>
+        </div>
+        <div class="project">
+            <img src="./git.png" alt="git logo" />
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut quo fugit doloribus modi. Impedit odit
+                repellat
+                quibusdam maiores velit mollitia! Amet, vel iusto. Quaerat ad eius fuga delectus veritatis deleniti.</p>
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>

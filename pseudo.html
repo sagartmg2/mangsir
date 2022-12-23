@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .children {
+            background-color: teal;
+            margin: 10px;
+        }
+
+        /* #second {
+            color: white;
+        }
+
+        .first {
+            color: red;
+        } */
+
+        /* .children:hover {
+            color: white;
+            margin-left: 20px;
+        } */
+
+        /* .first{
+            color: wheat
+        } */
+
+        /* .parent :first-child{
+            color:red;
+        } */
+        /* .parent :first-child{
+            color:red;
+        } */
+        /* .parent :nth-child(2n){
+            color:red;
+        } */
+
+        .parent :not(:last-child) {
+            color: red;
+        }
+
+        /* .parent :nth-child(4) ,.container :nth-child(4) {
+            color: red;
+        } */
+
+        /* .children:not(:nth-child(4)) {
+            color: red;
+        } */
+
+        input:focus {
+            color: red;
+        }
+
+        button:focus {
+            color: red;
+        }
+
+        .required-star {
+            color: red;
+        }
+
+        .required-field::after {
+            content: " * ";
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <form>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+        <div>
+            <label class="required-field">name </label>
+            <input />
+        </div>
+        <div>
+            <label class="required-field">mail</label>
+            <input />
+        </div>
+        <div>
+            <label class="required-field">Lorem ipsum, dolor sit amet consectetur </label>
+            <input />
+        </div>
+    </form>
+    <!-- <form>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+        <div>
+            <label>name<span class="required-star">*</span> </label>
+            <input />
+        </div>
+        <div>
+            <label>email<span class="required-star">*</span> </label>
+            <input />
+        </div>
+        <div>
+            <label> Lorem ipsum, dolor sit amet consectetur <span class="required-star">*</span> </label>
+            <input />
+        </div>
+    </form> -->
+
+
+
+
+    <!-- 
+    <input />
+    <button>click </button>
+
+    <div class="parent">
+        <div class="children first ">children</div>
+        <div class="children" id="second">children second </div>
+        <div class="children">children</div>
+        <div class="children">children fourth </div>
+        <div class="children">children</div>
+    </div>
+
+    <div class="container">
+        <div class="children first ">children</div>
+        <div class="children" id="second">children second </div>
+        <div class="children">children</div>
+        <div class="children">children fourth </div>
+        <div class="children">children</div>
+    </div> -->
+
+</body>
+
+</html>

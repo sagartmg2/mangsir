@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <title>Document</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .parents {
+            /* display: flex;
+            justify-content: space-between; */
+            /* flex-wrap: wrap; */
+        }
+
+        .child {
+            border: 3px solid black;
+            height: 200px;
+            /* width: 200px; */
+            background-color: teal;
+        }
+
+
+        /* @media (max-width: 576px) {
+            .parents {
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-around;
+            }
+        } */
+    </style>
+</head>
+
+<!-- sm 576 and greater -->
+
+<body class="container">
+    <div class="parents row">
+        <div class="child col-sm-6 col-md-4 col-lg-3">child</div>
+        <div class="child col-sm-6 col-md-4 col-lg-3">child</div>
+        <div class="child col-sm-6 col-md-4 col-lg-3">child</div>
+        <div class="child col-sm-6 col-md-4 col-lg-3">child</div>
+    </div>
+
+    <div class="contaier mt-4">
+
+        <button type="button" class="btn btn-primary btn-lg">Large button</button>
+        <button type="button" class="btn btn-secondary btn-lg">Large button</button>
+    </div>
+</body>
+
+</html>

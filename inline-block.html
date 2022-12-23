@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- <link
+        href="https://fonts.googleapis.com/css2?family=BhuTuka+Expanded+One&family=Roboto&family=Roboto+Mono&display=swap"
+        rel="stylesheet"> -->
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        /* 
+            VARIABLE - PUT VALUES 
+        */
+
+
+
+        .parent {
+            background-color: teal;
+            width: 400px;
+            height: 400px;
+            margin-top: 50px;
+        }
+
+        .child {
+            height: 200px;
+            width: 200px;
+            border: 2px solid black;
+            display: inline-block;
+        }
+
+        .second {
+            margin-left: calc((var(--font-size) / 4) * -1)
+        }
+
+        .child:nth-child(2) {
+            /* margin-left: calc((var(--font-size) / 4) * -1) */
+        }
+
+
+        .required-star {
+            /* color: red; */
+            /* color: rgb(255, 0, 0) */
+        }
+
+        body {
+            background-color: #f3f3f3;
+            font-size: var(--font-size)
+                /* font-family: 'BhuTuka Expanded One', cursive;
+            font-family: 'Roboto', sans-serif;
+            font-family: 'Roboto Mono', monospace; */
+                /* background-color: var(--primary-color);
+            color: var(--primary-color) */
+        }
+
+        form {
+            text-align: center;
+        }
+
+        form * {
+            padding: 5px
+        }
+
+        label {
+            width: 400px;
+            display: inline-block;
+            text-align: right;
+        }
+
+        :root {
+            --primary-color: purple;
+            --font-size: 16px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- <form>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+        <div>
+            <label>name<span class="required-star">*</span> </label>
+            <input />
+        </div>
+        <div>
+            <label>email<span class="required-star">*</span> </label>
+            <input />
+        </div>
+        <div>
+            <label> Lorem ipsum, dolor sit amet consectetur <span class="required-star">*</span> </label>
+            <input />
+        </div>
+    </form> -->
+
+    <div class="parent">
+        <div class="child">child</div>
+        <div class="child second ">child </div>
+    </div>
+    <!-- 
+
+
+    <div>
+        <a>home</a>
+        <a>about</a>
+        <a>contact </a>
+        <hr />
+
+        <ul>
+            <li><a>home</a></li>
+            <li><a>about</a></li>
+            <li><a>contact </a></li>
+        </ul>
+
+    </div> -->
+
+    <!-- <div class="parent"></div>
+
+    <div style="border: 1px solid black ;">
+        <span>helo </span>
+    </div>
+    <hr />
+    <span style="border: 1px solid black ;">helo </span> -->
+
+
+</body>
+
+</html>

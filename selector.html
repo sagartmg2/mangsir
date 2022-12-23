@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/styles.css">
+
+    <style>
+        /* 
+            selector {
+                key/property: value
+            }
+          */
+
+        /* 
+            selector
+                - id 
+                - class
+                - element 
+                - universal selector
+            
+            combinied selector
+                descendent selector
+                direct child selector
+                
+          */
+
+        /* p{
+            
+          } */
+
+        /* #second,
+        #third {
+            text-align: justify;
+        } */
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+
+
+        /* p#text-justify {
+            text-align: left;
+        }
+
+        #text-justify {
+            text-align: justify;
+        }
+
+        .text-left {
+            text-align: left;
+        } */
+
+        /* 002   */
+        body>p {
+            color: brown;
+            font-size: 30px;
+        }
+
+        body>p.text-left {
+            color: brown;
+            font-size: 30px;
+        }
+
+        /* 001 */
+        p {
+            color: orange
+        }
+
+        /* 012 */
+        body p.text-left {
+            color: black;
+        }
+
+        p.text-left {
+            color: red;
+        }
+
+        /* 010 */
+        .text-left {
+            color: aqua
+        }
+
+        /* 100 */
+        #red {
+            color: red;
+        }
+
+
+        /* #second .text-left#text-justify {
+            text-align: left;
+        }
+
+        #second #text-justify {
+            text-align: justify;
+        } */
+
+        /* #second.text-justify {
+            text-align: justify;
+        }
+
+        #second {
+            text-align: left;
+        }
+
+        .text-left {
+            text-align: left;
+        }
+
+        .text-justify {
+            text-align: justify !important;
+        } */
+
+
+        /* 
+
+            important > inline-css> id> class > elment 
+
+            specificity score1
+            0 0 0 
+            elment < class < id 
+
+                id
+                class
+                element
+
+        */
+        /* # #orange[type="text"] {
+            background-color: orange;
+        } */
+
+        /* #second-form+form [type="text"] { */
+        #second-form~input[type="text"] {
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="second-form">
+        <input>
+        <input type="password">
+        <input type="text" id="orange">
+        <input>
+    </form>
+
+    <form>
+        <input>
+        <input type="password">
+        <input>
+    </form>
+    <input type="text">
+
+
+    <p>direct child of body </p>
+
+    <div id="first">
+        <p>hello wolrd </p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum perferendis, eaque minima voluptatem quam
+            ducimus laudantium, beatae esse sint labore veritatis culpa impedit necessitatibus, harum quod molestias in
+            cum
+            qui.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum perferendis, eaque minima voluptatem quam
+            ducimus laudantium, beatae esse sint labore veritatis culpa impedit necessitatibus, harum quod molestias in
+            cum
+            ducimus laudantium, beatae esse sint labore veritatis culpa impedit necessitatibus, harum quod molestias in
+            cum
+            ducimus laudantium, beatae esse sint labore veritatis culpa impedit necessitatibus, harum quod molestias in
+            cum
+            qui.</p>
+    </div>
+    <hr />
+    <!-- <div id="second" class="text-justify text-left"  style="text-align: left;"> -->
+    <div id="second" class="text-justify text-left">
+        <H2>second</H2>
+        <p>hello wolrd </p>
+        <p class="text-left" id="red">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Voluptatum
+            perferendis,
+            eaque
+            minima voluptatem quam
+            ducimus laudantium, beatae esse sint labore veritatis culpa impedit necessitatibus, harum quod molestias in
+            cum
+            qui.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum perferendis, eaque minima voluptatem quam
+            ducimus laudantium, beatae esse sint labore veritatis culpa impedit necessitatibus, harum quod molestias in
+            cum
+            ducimus laudantium, beatae esse sint labore veritatis culpa impedit necessitatibus, harum quod molestias in
+            cum
+            ducimus laudantium, beatae esse sint labore veritatis culpa impedit necessitatibus, harum quod molestias in
+            cum
+            qui.</p>
+    </div>
+    <hr />
+    <div id="third" class="text-justify">
+        <h2>THIRD</h2>
+        <p>hello wolrd </p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum perferendis, eaque minima voluptatem quam
+            ducimus laudantium, beatae esse sint labore veritatis culpa impedit necessitatibus, harum quod molestias in
+            cum
+            qui.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum perferendis, eaque minima voluptatem quam
+            ducimus laudantium, beatae esse sint labore veritatis culpa impedit necessitatibus, harum quod molestias in
+            cum
+            ducimus laudantium, beatae esse sint labore veritatis culpa impedit necessitatibus, harum quod molestias in
+            cum
+            ducimus laudantium, beatae esse sint labore veritatis culpa impedit necessitatibus, harum quod molestias in
+            cum
+            qui.</p>
+    </div>
+
+</body>
+
+</html>

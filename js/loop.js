@@ -336,7 +336,6 @@ function printUserDetail(index) {
 
 
 /* 
-
     LOOP 
         for loop -- when we know the number of iterations
         while loop
@@ -359,26 +358,53 @@ function printUserDetail(index) {
 let num = 1
 // num++; // num = num + 1
 // ++num; // num = num + 1
-
+// console.log(num);
 // console.log("num", ++num);
-// console.log("num", num);
+// console.log("num", num++,num);
 
 
+// for (i = 0; i < 3; i++) {
+//     console.log("looped task", (i))
+// }
 
 
-for (i = 0; i < 3; i++) {
-    console.log("looped task", (i))
+/* 
+    find the multiplication table. 
+
+    10 x 1 = 10
+    10 x 2 = 20
+
+    till
+    100
+
+*/
+
+
+// console.log("loop end", i);
+
+// for(base case ; condition;modifier){}
+
+/* 
+    if(0<3){
+        log ("do soemthing")
+    }
+*/
+
+
+for (let i = 1; i <= 3; ++i) {
+    console.log("inside loop");
 }
 
 
 /* 
-    10 x 1 = 10
-    10 x 2 = 20
-    till
-    100
+    scope
+        global level 
+        block level
 */
 
-console.log("loop end", i);
+let course = "mern"
+console.log(course);
+console.log(i);
 
 
 

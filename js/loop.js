@@ -319,11 +319,15 @@ let users = [
 // console.log(users[4].name + " email is " + users[2].email);
 // console.log(users[5].name + " email is " + users[2].email);
 
-function printUserDetail(index) {
-    console.log(users[index].name + "'s email is " + users[index].email);
+function printUserDetail(index, field) {
+    // console.log(users[index].name + "'s " + field + "is " + users[index].email);
+    console.log(` ${users[index].name}'s ${field}  is ${users[index][field]}`);
+    // console.log(` ${users[index].name}'s ${field}  is ${users[index].username}`);
+
 }
 
-// printUserDetail(0);// calling, executing.
+// printUserDetail(0, "username");// calling, executing.
+// printUserDetail(1, "email");// calling, executing.
 // printUserDetail(1);// calling, executing.
 // printUserDetail(2);// calling, executing.
 // printUserDetail(3);// calling, executing.
@@ -391,9 +395,9 @@ let num = 1
 */
 
 
-for (let i = 1; i <= 3; ++i) {
-    console.log("inside loop");
-}
+// for (let i = 1; i <= 3; ++i) {
+//     console.log("inside loop");
+// }
 
 
 /* 
@@ -403,14 +407,114 @@ for (let i = 1; i <= 3; ++i) {
 */
 
 let course = "mern"
-console.log(course);
-console.log(i);
+// console.log(course);
+// console.log(i);
+
+
+
+// function calculateMultiplication(number, iteration) {
+//     for (let i = 1; i <= iteration; i++) {
+//         // console.log(number + " * " + i + " = " + (number * 1));
+//         /* 
+//             template litreal 
+//                 back tick 
+//                 ``
+//         */
+//         console.log(`${number} x ${i}  = ${number * i}`);
+//     }
+// }
+
+// calculateMultiplication(10, 10)
+
+
+
+/* display the multiple table of given number using function and For loop*/
+
+let n = 10;
+
+// console.log("The multiple table of " + n);
+// for (let i = 1; i <= 10; i++) {
+//     multipleTable(i);
+// }
+
+// function multipleTable(i) {
+//     console.log(n + " * " + i + " = " + n * i);
+// }
+
+// for
+
+
+// let array = [1, 2, 3, 4, 5, 6, 7]
+
+// let arr2 = arr.slice(0,3)
+
+// arr[0] = arr[0] * 2
+// arr[1] = arr[1] * 2
+// arr[7] = 8
+// arr.splice(3,0,3.1,3.2)
+// arr.splice(2)
+// arr.push(8)
+// arr.unshift(0)
+// arr.pop()
+// arr.shift()
+// console.log(arr)
+
+// for (let index = 0; index < array.length; index++) {
+//     array[index] = array[index] * 2
+// }
+
+// function doSomething() {
+//     console.log("dosomething");
+//     return "returned value"
+// }
+
+let array = [1, 2]
+
+
+
+// const PI = 3.14;
+
+const doSomething = (element) => {
+    console.log("dosomething , " + element);
+}
+
+// function doSomething() {
+//     console.log("dosomething");
+//     return "returned value"
+// }
+
+// doSomething(12)
+
+// array.forEach(doSomething)
+let temp = []
+
+// array.forEach((element) => {
+//     // console.log("" + element);
+//     temp.push(element * 2)
+// })
+
+
+// console.log(array)
+
+array = array.map((temp_varaible) => {
+    // temp.push(el * 2)
+    return temp_varaible * 2;
+})
+
+// array = temp
+console.log(array);
 
 
 
 
+/*
+    callabck
+        - a function passed to anothr function
+*/
 
 
+// console.log(array)
+// [2,4,6]
 
 
 

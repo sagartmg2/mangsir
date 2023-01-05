@@ -1,59 +1,69 @@
 
 
-/* 
-    primitive data types
-     - String
-     - Number
-     - Boolean / true false
-     - undefined // value has not been initialized
-     - null
+console.log(1);
+console.log(2);
 
-     non primitive data types // collection
-        array  //  most of the time, collection of similiar data types
-        object
-*/
 
-let num1 = 1
-let num2 = 2
-console.log(num1);
+// const sum = (num1, num2) => { return num1 + num2 }
+const sum = (num1, num2) => num1 + num2
+// const sum = () =>
 
-/*  
 
-*/
-
-// let fruits = ["apple", "banana", null, undefined, 1, []]
-// let fruits = [ 0th index ,1st index ,]
-let fruits = ["apple", "banana"]
-
-fruits[1] = "orange"
-// console.log(fruits[1])
-console.log(fruits)
-
-let institution = {
-    // key.attribute,property: value,
-    name: "Mind risers",
-    estd: 2019,
-    1: "one",
-    email:"tech..adf"
+let array = [1, 2, 3]
+for (let index = 0; index < 10; index++) {
+    const element = array[index];
+    console.log({ element })
 }
 
-institution.estd = 2018
+let result = sum(1, 2)
+console.log({ result });
 
-console.log(institution);
-console.log(institution.name);
 /* 
-    <form>
-        <input name="email" value= ""
-    </form>
+    asynchronous 
+        - events that occur in future.
+        - tasks that runs in background and doesnot wait for itself to be executed. 
+*/
+
+
+// setTimeout(() => {
+//     console.log("inside timeout")
+// }, 1000)
+
+setTimeout(() => {
+    console.log("inside timeout with 0 s")
+}, 0)
+
+/* 
+    promise
+        - pending state
+        - resolved  
+        - rejected 
 
 */
-let field_name = "email"
-// console.log(institution.1);
-console.log(institution["1"]);
-console.log("email",institution.email);
-console.log("email",institution[field_name]);
+
+// try {
+//     b = 2
+//     c = 3
+//     let a = b + c;
+//     console.log("inside try block", a)
+// } catch (error) {
+//     console.log("error", error.message)
+// }
 
 
+let promise1 = new Promise((resolve, reject) => {
+    resolve("fulfill")
+    // reject("cancealled")
+})
 
+promise1
+    .then((res) => {
+        console.log("promise fulfilled")
+        console.log(res);
+    })
+    .catch((err) => {
+        console.log(err)
+    })
 
-
+console.log("1-end");
+console.log("2 - end");

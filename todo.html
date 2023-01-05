@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form onsubmit="addTodo(event)">
+        <input name="title">
+        <button>add to list</button>
+    </form>
+
+    <ul id="list">
+        <li>one</li>
+        <li>two</li>
+    </ul>
+
+    <script>
+        function addTodo(event) {
+            event.preventDefault();
+            console.log("add to list. ", event.target.title.value)
+
+            let new_li = document.createElement("li")
+            new_li.innerText = event.target.title.value
+
+            let list = document.getElementById("list")
+            list.appendChild(new_li)
+
+            /* 
+                (research)
+                innerHTML
+            */
+        }
+    </script>
+
+</body>
+
+</html>

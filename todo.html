@@ -15,26 +15,76 @@
     </form>
 
     <ul id="list">
-        <li>one</li>
-        <li>two</li>
+        <!-- <li>one</li>
+        <li>two</li> -->
     </ul>
 
     <script>
+
+
+        let todos = [];
+
+        if (localStorage.getItem("todos")) {
+            todos = JSON.parse(localStorage.getItem("todos"))
+            convertTodosToLi();
+        }
+
         function addTodo(event) {
             event.preventDefault();
-            console.log("add to list. ", event.target.title.value)
+            if (event.target.title.value) {
+                todos.push(event.target.title.value)
+                event.target.title.value = ""
 
-            let new_li = document.createElement("li")
-            new_li.innerText = event.target.title.value
+                convertTodosToLi();
+                localStorage.setItem("todos", JSON.stringify(todos))
 
-            let list = document.getElementById("list")
-            list.appendChild(new_li)
+            }
+
+            // let new_li = document.createElement("li")
+            // new_li.innerText = event.target.title.value
+
+            // let list = document.getElementById("list")
+            // list.appendChild(new_li)
 
             /* 
                 (research)
                 innerHTML
             */
         }
+
+        function deleteTodo(index) {
+            console.log("delete todo with index", index);
+            todos = todos.filter((element, idx) => { return index != idx })
+            console.log(todos);
+            convertTodosToLi();
+            localStorage.setItem("todos", JSON.stringify(todos))
+        }
+
+        function convertTodosToLi() {
+
+            /* 
+                can set by innerHTML too
+            */
+
+            document.getElementById("list").innerText = ""
+            todos.forEach((todo, index) => {
+                let new_li = document.createElement("li")
+                let button = document.createElement("button")
+                let span = document.createElement("span")
+                span.innerText = todo;
+                button.innerText = "delete";
+                button.addEventListener("click", () => {
+                    deleteTodo(index)
+                })
+
+                new_li.appendChild(span)
+                span.appendChild(button)
+
+                let list = document.getElementById("list")
+                list.appendChild(new_li)
+            })
+        }
+
     </script>
 
 </body>

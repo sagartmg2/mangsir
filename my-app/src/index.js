@@ -8,12 +8,14 @@ import Todo from "./page/Todo"
 import Counter from './component/Counter';
 import reportWebVitals from './reportWebVitals';
 import TodoList from './page/TodoList';
+import ShoppingList from './page/ShoppingList';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <Todo />
   // <Counter />
-  <TodoList />
+  // <TodoList />
+  <ShoppingList/>
 );
 
 // If you want to start measuring performance in your app, pass a function

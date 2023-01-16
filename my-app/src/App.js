@@ -5,6 +5,11 @@ import Navbar from "./Navbar"
 import LoginButton from './LoginButton';
 import RegisterButton from './RegisterButton';
 import Button from './Button';
+import ShoppingList from './page/ShoppingList';
+
+import Counter from './component/Counter';
+import ClassTodoList from './ClassTodoList';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 // App()
 
 function App() {
@@ -12,8 +17,13 @@ function App() {
   return (
     <div>
       <Navbar />
-      <Button text="login" className="login-btn" />
-      <Button text="signup" className="register-btn" />
+      <Routes>
+        <Route path='counter' element={<Counter />} />
+        <Route path='todo' element={<ClassTodoList />} />
+        <Route path='shopping' element={<ShoppingList />} />
+      </Routes>
+      {/* <Button text="login" className="login-btn" /> */}
+      {/* <Button text="signup" className="register-btn" /> */}
       {/* 
         Button(login)
         Button("resgiter")
@@ -21,23 +31,7 @@ function App() {
       */}
       {/* <LoginButton />
       <RegisterButton /> */}
-      <div className="App">
-        {/* // Navbar() */}
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            {1 + 1}
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+
     </div>
 
   );

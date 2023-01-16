@@ -9,13 +9,20 @@ import Counter from './component/Counter';
 import reportWebVitals from './reportWebVitals';
 import TodoList from './page/TodoList';
 import ShoppingList from './page/ShoppingList';
+import ClassTodoList from './ClassTodoList';
+import App from "./App"
+import { BrowserRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <Todo />
   // <Counter />
   // <TodoList />
-  <ShoppingList/>
+  // <ShoppingList/>
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+  // <ClassTodoList title="class component" />
 );
 
 // If you want to start measuring performance in your app, pass a function

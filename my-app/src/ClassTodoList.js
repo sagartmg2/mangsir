@@ -11,7 +11,8 @@ class ClassTodoList extends React.Component {
         this.state = {
             todos: [],
             count: 0,
-            dates: "2022"
+            dates: "2022",
+            comments: []
         }
 
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -28,6 +29,25 @@ class ClassTodoList extends React.Component {
             count: 12
         })
     }
+
+    componentDidMount(prevProps, prevState) {
+        // if (prevState.name != this.state.name){
+
+        // }
+        fetch('https://jsonplaceholder.typicode.com/comments')
+            .then(response => response.json())
+            .then(json => {
+                // setcomments(json)
+                this.setState({
+                    comments: json
+                })
+            })
+    }
+
+    componentDidUpdate() {
+        console.log("did update ");
+    }
+
 
     render() {
         console.log("remder");

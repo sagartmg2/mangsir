@@ -19,6 +19,13 @@ const ShoppingList = () => {
         setShoppingList(temp)
     }
 
+    function remove(idx) {
+        console.log("remove");
+        let temp = [...shopping_lists]
+        temp = temp.filter((el, index) => idx != index)
+        setShoppingList(temp)
+    }
+
     return (
         <>
             <div>
@@ -42,7 +49,9 @@ const ShoppingList = () => {
                             return <tr key={item.id}>
                                 <td>{item.title}</td>
                                 <td>{item.quantity}</td>
-                                <td><button>delete</button></td>
+                                <td><button onClick={() => {
+                                    remove(index)
+                                }} >delete</button></td>
                             </tr>
                         })
                     }

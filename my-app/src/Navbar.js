@@ -12,7 +12,12 @@ export default function Navbar() {
                 </li>
                 <li>
                     <Link to="/counter">Counter </Link>
-
+                </li>
+                <li>
+                    <Link to="/cart">Cart </Link>
+                </li>
+                <li>
+                    <Link to="/comments">Fetch Async Comment from API </Link>
                 </li>
             </ul>
         </div>

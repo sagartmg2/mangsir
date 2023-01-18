@@ -81,7 +81,7 @@ const Comment = () => {
     useEffect(() => {
         console.log("use effect as didMount");
         fetchComments()
-    }, [])
+    },[])
 
     useEffect(() => {
         console.log("use effect as didUpdate -- fetchProduct()");

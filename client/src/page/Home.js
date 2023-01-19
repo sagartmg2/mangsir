@@ -13,6 +13,8 @@ const Home = () => {
     const [products, setProducts] = useState([]);
     const [isLoading, setisLoading] = useState(true);
 
+    const [serach_term, setSearchTerm] = useState("");
+
     /*  
         database operations
             CRUD
@@ -30,7 +32,7 @@ const Home = () => {
     */
 
     useEffect(() => {
-        axios.get("https://ecommerce-sagartmg2.vercel.app/api/products")
+        axios.get(`https://ecommerce-sagartmg2.vercel.app/api/products?search_term=${serach_term}`)
             .then(res => {
                 console.log(res);
                 setisLoading(false)
@@ -39,7 +41,7 @@ const Home = () => {
             }).catch(err => {
 
             })
-    }, []);
+    }, [serach_term]);
 
 
     return (
@@ -50,7 +52,7 @@ const Home = () => {
                 <h1>loading.. </h1>
 
             }
-            <input/>
+            <input value={serach_term} onChange={(e) =>{setSearchTerm(e.target.value)}}/>
             {
                 products.map(product => {
                     return <div className='p-2 col-md-3' key={product._id}>
@@ -60,7 +62,8 @@ const Home = () => {
                             <img src={`${product.images[0] || require("../asset/images/no-image.jpg")}`}
                                 className="card-img-top" alt="..."
                                 style={{
-                                    height: "180px"
+                                    height: "180px",
+                                    objectFit:"cover"
                                 }}
                             />
                             <div className="card-body">

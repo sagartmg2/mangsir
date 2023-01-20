@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useState } from 'react';
+import ErrorMessage from '../component/ErrorMessage';
 
 const Signup = () => {
 
@@ -8,21 +9,59 @@ const Signup = () => {
         email: ""
     })
 
+    // const [error, setError] = useState([
+    //     {
+    //         param: "email",
+    //         msg: "alredy...."
+    //     }
+    // ])
+
+
+    // const [name, setname] = useState("");
+
     const [data, setData] = useState({
-        name:"",
+        name: "fasdf",
+        email: "em@easdfm.com",
+        password: "password",
+        role: "buyer"
     });
-    
-    const [name, setname] = useState("");
-    // const [state, setstate] = useState(initialState);
 
     function handleSubmit(e) {
         e.preventDefault();
+
+        let { name, email, password, role } = data
+
+        let validation = true;
 
         let err = {}
         if (!name) {
             err.name = "Required"
         }
-        setError(err)
+        if (!email) {
+            err.email = "Required"
+        }
+
+        if (Object.entries(err).length == 0) {
+            axios.post(`${process.env.REACT_APP_SERVER_DOMAIN}users/signup`, {
+                name,
+                email,
+                password,
+                role,
+            })
+                .then(res => {
+
+                })
+                .catch(err => {
+                    console.log(err)
+                    // setError({
+                    //     email: "alerdy."
+                    // })
+                    // setError(err.response.data.errors)
+                })
+        } else {
+            setError(err)
+        }
+
 
 
         /* 
@@ -38,22 +77,10 @@ const Signup = () => {
         5
          */
 
-        let {  email, password, role } = e.target;
 
 
 
-        axios.post(`${process.env.REACT_APP_SERVER_DOMAIN}users/signup`, {
-            name: name.value,
-            email: email.value,
-            password: password.value,
-            role: role.value
-        })
-            .then(res => {
 
-            })
-            .catch(err => {
-
-            })
     }
 
     return (
@@ -62,29 +89,43 @@ const Signup = () => {
             <form onSubmit={handleSubmit}>
                 <div class="form-group">
                     <label for="">Name</label>
-                    <input type="text" name='name' class="form-control" placeholder=""  />
-
+                    <input type="text" name='name' value={data.name} class="form-control" placeholder="" />
                     {
                         error.name
                         &&
-                        <small>{error.name}</small>
+                        <ErrorMessage msg={error.name} />
                     }
                 </div>
                 <div class="form-group">
                     <label for="">Email address</label>
-                    <input type="email" name='email' class="form-control" placeholder="" />
+                    <input type="email" name='email' class="form-control" value={data.email} placeholder="" />
+                    {
+                        error.email
+                        &&
+                        <ErrorMessage msg={error.email} />
+                    }
+                    {/* {
+                        error.find(el => el.param == "email")
+                        &&
+                        <ErrorMessage msg={error.find(el => el.param == "email").msg} />
+                    } */}
                 </div>
                 <div class="form-group">
                     <label for="">Password</label>
-                    <input type="text" name='password' class="form-control" placeholder="" />
+                    <input type="text" name='password' value={data.password} class="form-control" placeholder="" />
                 </div>
                 <div class="form-group">
                     <label for="">Role</label>
-                    <select class="form-select" name="role" aria-label="Default select example">
-                        <option selected>Open this select menu</option>
+                    <select class="form-select" name="role" aria-label="Default select example" value={data.role} >
+                        <option value="">Open this select menu</option>
                         <option value="buyer">Buyer</option>
                         <option value="seller">Seller</option>
                     </select>
+                    {/* {
+                        error.find(el => el.param == "role")
+                        &&
+                        <ErrorMessage msg={error.find(el => el.param == "role").msg} />
+                    } */}
                 </div>
 
                 <button type="submit" class="btn btn-primary">Submit</button>
@@ -92,5 +133,31 @@ const Signup = () => {
         </div>
     );
 }
+
+/* 
+
+[
+    {
+        "value": "em@em.com",
+        "msg": "E-mail already in use",
+        "param": "email",
+        "location": "body"
+    },
+    {
+        "value": "em@em.com",
+        "msg": "not sucpported",
+        "param": "role",
+        "location": "body"
+    }
+]
+
+// output 
+
+{
+    "email":"E-mail already in us..",
+    "role" :"not sucpporte"
+}
+
+*/
 
 export default Signup;

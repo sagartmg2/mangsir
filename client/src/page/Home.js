@@ -8,12 +8,12 @@ import NOImage from "../asset/images/no-image.jpg"
 */
 
 
-const Home = () => {
+const Home = ({search_term}) => {
 
     const [products, setProducts] = useState([]);
     const [isLoading, setisLoading] = useState(true);
 
-    const [serach_term, setSearchTerm] = useState("");
+    // const [serach_term, setSearchTerm] = useState("");
 
     /*  
         database operations
@@ -32,7 +32,7 @@ const Home = () => {
     */
 
     useEffect(() => {
-        axios.get(`https://ecommerce-sagartmg2.vercel.app/api/products?search_term=${serach_term}`)
+        axios.get(`https://ecommerce-sagartmg2.vercel.app/api/products?search_term=${search_term}`)
             .then(res => {
                 console.log(res);
                 setisLoading(false)
@@ -41,7 +41,7 @@ const Home = () => {
             }).catch(err => {
 
             })
-    }, [serach_term]);
+    }, [search_term]);
 
 
     return (
@@ -52,7 +52,7 @@ const Home = () => {
                 <h1>loading.. </h1>
 
             }
-            <input value={serach_term} onChange={(e) =>{setSearchTerm(e.target.value)}}/>
+            {/* <input value={serach_term} onChange={(e) =>{setSearchTerm(e.target.value)}}/> */}
             {
                 products.map(product => {
                     return <div className='p-2 col-md-3' key={product._id}>

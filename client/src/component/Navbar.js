@@ -1,6 +1,10 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
-function Navbar({ search_term, setSearchTerm }) {
+function Navbar({ search_term, setSearchTerm, setUser, user }) {
+
+
+
     return <>
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
@@ -12,17 +16,33 @@ function Navbar({ search_term, setSearchTerm }) {
                         <li className="nav-item">
                             <Link className="nav-link active" aria-current="page" to="/">Home</Link>
                         </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/login">Login</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="signup">Signup</Link>
-                        </li>
+                        {
+                            !user
+                            &&
+                            <>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/login">Login</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="signup">Signup</Link>
+                                </li>
+                            </>
+                        }
+
+
 
                     </ul>
                     <form className="d-flex">
                         <input className="form-control me-2" value={search_term} onChange={(e) => { setSearchTerm(e.target.value) }} type="search" placeholder="Search" aria-label="Search" />
                     </form>
+                    {
+                        user
+                        &&
+                        <button onClick={() => {
+                            localStorage.removeItem("access_token")
+                            setUser(null)
+                        }} className="btn">Logout</button>
+                    }
                 </div>
             </div>
         </nav>

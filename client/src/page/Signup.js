@@ -1,8 +1,11 @@
 import axios from 'axios';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import ErrorMessage from '../component/ErrorMessage';
 
 const Signup = () => {
+
+    const navigate = useNavigate();
 
     const [error, setError] = useState({
         name: "",
@@ -49,7 +52,7 @@ const Signup = () => {
                 role,
             })
                 .then(res => {
-
+                    navigate("/login")
                 })
                 .catch(err => {
                     console.log(err)
@@ -61,8 +64,6 @@ const Signup = () => {
         } else {
             setError(err)
         }
-
-
 
         /* 
                 Authentication VS authorization
@@ -76,11 +77,13 @@ const Signup = () => {
          404 -page not found / resource not found       
         5
          */
+    }
 
-
-
-
-
+    function handleChange(e) {
+        setData({
+            ...data,
+            [e.target.name]: e.target.value
+        })
     }
 
     return (
@@ -89,7 +92,7 @@ const Signup = () => {
             <form onSubmit={handleSubmit}>
                 <div class="form-group">
                     <label for="">Name</label>
-                    <input type="text" name='name' value={data.name} class="form-control" placeholder="" />
+                    <input type="text" name='name' value={data.name} onChange={handleChange} class="form-control" placeholder="" />
                     {
                         error.name
                         &&
@@ -98,7 +101,7 @@ const Signup = () => {
                 </div>
                 <div class="form-group">
                     <label for="">Email address</label>
-                    <input type="email" name='email' class="form-control" value={data.email} placeholder="" />
+                    <input type="email" name='email' class="form-control" onChange={handleChange} value={data.email} placeholder="" />
                     {
                         error.email
                         &&
@@ -112,11 +115,11 @@ const Signup = () => {
                 </div>
                 <div class="form-group">
                     <label for="">Password</label>
-                    <input type="text" name='password' value={data.password} class="form-control" placeholder="" />
+                    <input type="text" name='password' value={data.password} onChange={handleChange} class="form-control" placeholder="" />
                 </div>
                 <div class="form-group">
                     <label for="">Role</label>
-                    <select class="form-select" name="role" aria-label="Default select example" value={data.role} >
+                    <select class="form-select" name="role" aria-label="Default select example" value={data.role} onChange={handleChange} >
                         <option value="">Open this select menu</option>
                         <option value="buyer">Buyer</option>
                         <option value="seller">Seller</option>
@@ -151,8 +154,9 @@ const Signup = () => {
     }
 ]
 
-// output 
-
+// output
+let err ={}
+erros[0]["param"] = errros[0].msg
 {
     "email":"E-mail already in us..",
     "role" :"not sucpporte"

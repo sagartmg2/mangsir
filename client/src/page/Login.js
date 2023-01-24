@@ -46,9 +46,20 @@ const Login = (props) => {
                 password,
             })
                 .then(res => {
-                    navigate("/")
-                    localStorage.setItem("access_token", res.data.access_token)
-                    props.setUser(true)
+
+
+                    axios.get("https://ecommerce-sagartmg2.vercel.app/api/users/get-user", {
+                        headers: {
+                            Authorization: "Bearer " + res.data.access_token
+                        }
+                    })
+                        .then(user_res => {
+                            navigate("/")
+                            localStorage.setItem("access_token", res.data.access_token)
+                            props.setUser(user_res.data)
+                        })
+                        .catch(err => {
+                        })
                 })
                 .catch(err => {
                     console.log(err)

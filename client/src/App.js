@@ -5,6 +5,8 @@ import Signup from "./page/Signup";
 import Home from "./page/Home";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import ProductDetail from "./page/Product/ProductDetail";
+import Create from "./page/Product/Create";
 
 function App() {
 
@@ -28,7 +30,7 @@ function App() {
           setUser(res.data)
         })
         .catch(err => {
-
+          setisFetching(true)
         })
 
     } else {
@@ -53,6 +55,11 @@ function App() {
           <Route path="" element={<Home search_term={search_term} user={user} />} />
           <Route path="login" element={<Login setUser={setUser} />} />
           <Route path="signup" element={<Signup />} />
+          <Route path="products">
+            <Route path=":id" element={<ProductDetail user={user} />} />
+            <Route path="create" element={<Create />} />
+          </Route>
+
         </Routes>
 
       </BrowserRouter>

@@ -2,9 +2,6 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 function Navbar({ search_term, setSearchTerm, setUser, user }) {
-
-
-
     return <>
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
@@ -16,6 +13,13 @@ function Navbar({ search_term, setSearchTerm, setUser, user }) {
                         <li className="nav-item">
                             <Link className="nav-link active" aria-current="page" to="/">Home</Link>
                         </li>
+                        {
+                            user?.role === "seller" &&
+                            // user &&
+                            <li className="nav-item">
+                                <Link className="nav-link active" aria-current="page" to="/products/create">Create Product</Link>
+                            </li>
+                        }
                         {
                             !user
                             &&

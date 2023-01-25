@@ -1,7 +1,14 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { setUser as setReduxUser } from "../redux/Slice/UserSlice";
 
-function Navbar({ search_term, setSearchTerm, setUser, user }) {
+function Navbar({ search_term, setSearchTerm, setUser, user: app_state_user }) {
+    const dispatch = useDispatch()
+    const user = useSelector((store) => store.user.value)
+
+    // console.log("redux-user", user)
+
     return <>
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
@@ -13,6 +20,9 @@ function Navbar({ search_term, setSearchTerm, setUser, user }) {
                         <li className="nav-item">
                             <Link className="nav-link active" aria-current="page" to="/">Home</Link>
                         </li>
+                        {/* {
+                            JSON.stringify(user)
+                        } */}
                         {
                             user?.role === "seller" &&
                             // user &&
@@ -33,8 +43,6 @@ function Navbar({ search_term, setSearchTerm, setUser, user }) {
                             </>
                         }
 
-
-
                     </ul>
                     <form className="d-flex">
                         <input className="form-control me-2" value={search_term} onChange={(e) => { setSearchTerm(e.target.value) }} type="search" placeholder="Search" aria-label="Search" />
@@ -44,7 +52,8 @@ function Navbar({ search_term, setSearchTerm, setUser, user }) {
                         &&
                         <button onClick={() => {
                             localStorage.removeItem("access_token")
-                            setUser(null)
+                            // setUser(null)
+                            dispatch(setReduxUser(null))
                         }} className="btn">Logout</button>
                     }
                 </div>

@@ -1,9 +1,13 @@
 import axios from 'axios';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import ErrorMessage from '../component/ErrorMessage';
+import { setUser } from '../redux/Slice/UserSlice';
 
 const Login = (props) => {
+
+    const dispatch = useDispatch()
 
     const navigate = useNavigate();
 
@@ -54,9 +58,12 @@ const Login = (props) => {
                         }
                     })
                         .then(user_res => {
+                            console.log("set-user");
+                            dispatch(setUser(user_res.data))
                             navigate("/")
                             localStorage.setItem("access_token", res.data.access_token)
-                            props.setUser(user_res.data)
+                            
+                            // props.setUser(user_res.data)
                         })
                         .catch(err => {
                         })

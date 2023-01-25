@@ -7,8 +7,12 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import ProductDetail from "./page/Product/ProductDetail";
 import Create from "./page/Product/Create";
+import { setUser as setReduxUser } from "./redux/Slice/UserSlice";
+import { useDispatch } from "react-redux";
 
 function App() {
+
+  const dispatch = useDispatch()
 
   const [search_term, setSearchTerm] = useState("");
   const [user, setUser] = useState(null); //{name,email,role...}
@@ -27,7 +31,8 @@ function App() {
       })
         .then(res => {
           setisFetching(true)
-          setUser(res.data)
+          // setUser(res.data)
+          dispatch(setReduxUser(res.data))
         })
         .catch(err => {
           setisFetching(true)

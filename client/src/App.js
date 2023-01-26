@@ -6,7 +6,7 @@ import Home from "./page/Home";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import ProductDetail from "./page/Product/ProductDetail";
-import Create from "./page/Product/Create";
+import Upsert from "./page/Product/Upsert";
 import { setUser as setReduxUser } from "./redux/Slice/UserSlice";
 import { useDispatch } from "react-redux";
 
@@ -62,7 +62,8 @@ function App() {
           <Route path="signup" element={<Signup />} />
           <Route path="products">
             <Route path=":id" element={<ProductDetail user={user} />} />
-            <Route path="create" element={<Create />} />
+            <Route path="edit/:id" element={<Upsert />} />
+            <Route path="create" element={<Upsert />} />
           </Route>
 
         </Routes>

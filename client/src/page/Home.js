@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import NOImage from "../asset/images/no-image.jpg"
 import BuyerComponent from '../component/BuyerComponent';
+import RoleComponent from '../component/RoleComponent';
 /* 
     import -> ES6 module
     require -> common JS
@@ -53,6 +54,12 @@ const Home = ({ search_term, user }) => {
         console.log("add to cart")
     }
 
+    const editProduct = (e, id) => {
+        e.preventDefault();
+        console.log("edit product");
+        navigate("/products/edit/" + id)
+
+    }
 
     return (
         <div className='container'>
@@ -68,7 +75,10 @@ const Home = ({ search_term, user }) => {
                 {
                     products.map(product => {
                         return <div className='p-2 col-md-3' key={product._id}>
-                            <Link to={`/products/${product._id}`}>
+                            <Link to={`/products/${product._id}`} style={{
+                                textDecoration: "none",
+                                color: "inherit"
+                            }}>
                                 <div className="card"  >
                                     {/* <img src={require("../asset/images/no-image.jpg")} className="card-img-top" alt="..." /> */}
                                     {/* <img src={NOImage} className="card-img-top" alt="..." /> */}
@@ -89,14 +99,15 @@ const Home = ({ search_term, user }) => {
                                         <BuyerComponent user={user}>
                                             <button className='btn btn-secondary' onClick={addToCart}>Add To Cart</button>
                                         </BuyerComponent>
-                                        {
-                                            user?.role == "seller"
-                                            &&
+                                        <RoleComponent role="seller">
                                             <>
-                                                <button className='btn btn-secondary' onClick={addToCart}>Edit</button>
+                                                {/* <Link to="/products/edit/id">to ID </Link> */}
+                                                <button className='btn btn-secondary' onClick={(e) => editProduct(e, product._id)}>Edit</button>
                                                 <button className='btn btn-secondary mx-3' onClick={addToCart}>Delete</button>
                                             </>
-                                        }
+                                        </RoleComponent>
+
+
                                     </div>
                                 </div>
                             </Link>

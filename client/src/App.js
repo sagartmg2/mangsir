@@ -9,6 +9,7 @@ import ProductDetail from "./page/Product/ProductDetail";
 import Upsert from "./page/Product/Upsert";
 import { setUser as setReduxUser } from "./redux/Slice/UserSlice";
 import { useDispatch } from "react-redux";
+import Cart from "./page/Cart";
 
 function App() {
 
@@ -17,7 +18,6 @@ function App() {
   const [search_term, setSearchTerm] = useState("");
   const [user, setUser] = useState(null); //{name,email,role...}
   const [isFetching, setisFetching] = useState(false);
-
 
 
   useEffect(() => {
@@ -60,6 +60,7 @@ function App() {
           <Route path="" element={<Home search_term={search_term} user={user} />} />
           <Route path="login" element={<Login setUser={setUser} />} />
           <Route path="signup" element={<Signup />} />
+          <Route path="cart" element={<Cart />} />
           <Route path="products">
             <Route path=":id" element={<ProductDetail user={user} />} />
             <Route path="edit/:id" element={<Upsert />} />

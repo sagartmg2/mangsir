@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { setUser as setReduxUser } from "../redux/Slice/UserSlice";
+import BuyerComponent from "./BuyerComponent";
 
 function Navbar({ search_term, setSearchTerm, setUser, user: app_state_user }) {
     const dispatch = useDispatch()
@@ -30,6 +31,11 @@ function Navbar({ search_term, setSearchTerm, setUser, user: app_state_user }) {
                                 <Link className="nav-link active" aria-current="page" to="/products/create">Create Product</Link>
                             </li>
                         }
+                        <BuyerComponent>
+                            <li className="nav-item">
+                                <Link className="nav-link active" aria-current="page" to="/cart">Cart</Link>
+                            </li>
+                        </BuyerComponent>
                         {
                             !user
                             &&

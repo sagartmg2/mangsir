@@ -11,3 +11,24 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.pagination-wrapper li {
+  list-style: none;
+}
+
+.pagination-wrapper li.selected {
+  /* background-color: cyan;
+  color: white; */
+}
+
+.pagination-wrapper li.disabled {
+  /* background-color: cyan;
+  color: white; */
+  cursor: no-drop;
+}
+
+.pagination-wrapper li {
+  display: inline-block;
+  padding: 10px;
+  border: 1px solid;
+}

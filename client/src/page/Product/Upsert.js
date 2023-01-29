@@ -10,7 +10,8 @@ export default function Upsert() {
     price: "",
     in_stock: "",
     description: "",
-    categories: [""]
+    categories: [""],
+    images: [],
   });
 
   useEffect(() => {
@@ -85,6 +86,7 @@ export default function Upsert() {
       })
 
     } else if (e.target.name == "images") {
+      console.log("here..")
 
       let temp = [...product.images, ...e.target.files]
 

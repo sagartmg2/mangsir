@@ -10,6 +10,7 @@ import Upsert from "./page/Product/Upsert";
 import { setUser as setReduxUser } from "./redux/Slice/UserSlice";
 import { useDispatch } from "react-redux";
 import Cart from "./page/Cart";
+import { setCart } from "./redux/Slice/CartSlice";
 
 function App() {
 
@@ -42,12 +43,25 @@ function App() {
       setisFetching(true)
     }
 
+    let cart_items = localStorage.getItem("cart_items")
+    if (cart_items) {
+      let temp = JSON.parse(cart_items)
+      dispatch(setCart(temp))
+    }
 
   }, []);
 
   if (!isFetching) {
+    return <div style={{
+      height: "100vh",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center"
+    }}>
+      <h1>Connecting Togther</h1>
+    </div>
     return <div class="spinner-border" role="status">
-      <span class="sr-only">Loading...</span>
+      <span class="sr-only">Connecting together</span>
     </div>
   }
 

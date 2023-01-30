@@ -1,9 +1,12 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import BuyerComponent from '../../component/BuyerComponent';
+import { addToCart } from '../../redux/Slice/CartSlice';
 
 export default function ProductDetail({ user }) {
+    let dispatch = useDispatch()
 
     const { id } = useParams();
     const [product, setProduct] = useState({});
@@ -44,7 +47,9 @@ export default function ProductDetail({ user }) {
                 <h2>{product.name}</h2>
                 <h3>$ {product.price}</h3>
                 <BuyerComponent user={user}>
-                    <button className='btn btn-secondary' onClick={() => { }}>Add To Cart</button>
+                    <button className='btn btn-secondary' onClick={() => {
+                        dispatch(addToCart(product))
+                    }}>Add To Cart</button>
                 </BuyerComponent>
                 {/* {
                     user.role == "buyer"

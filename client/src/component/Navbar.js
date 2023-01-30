@@ -7,6 +7,13 @@ import BuyerComponent from "./BuyerComponent";
 function Navbar({ search_term, setSearchTerm, setUser, user: app_state_user }) {
     const dispatch = useDispatch()
     const user = useSelector((store) => store.user.value)
+    const cart_items = useSelector((store) => store.cart.value)
+
+    let cart_count = 0;
+
+    cart_items.forEach(cart_iitem => {
+        cart_count += cart_iitem.quantity
+    });
 
     // console.log("redux-user", user)
 
@@ -33,7 +40,7 @@ function Navbar({ search_term, setSearchTerm, setUser, user: app_state_user }) {
                         }
                         <BuyerComponent>
                             <li className="nav-item">
-                                <Link className="nav-link active" aria-current="page" to="/cart">Cart</Link>
+                                <Link className="nav-link active" aria-current="page" to="/cart">Cart <span>{cart_count}</span> </Link>
                             </li>
                         </BuyerComponent>
                         {

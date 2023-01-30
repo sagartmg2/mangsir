@@ -6,7 +6,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import NOImage from "../asset/images/no-image.jpg"
 import BuyerComponent from '../component/BuyerComponent';
 import RoleComponent from '../component/RoleComponent';
-import { setCart } from '../redux/Slice/CartSlice';
+import { addToCart as reduxAddToCart } from '../redux/Slice/CartSlice';
 /* 
     import -> ES6 module
     require -> common JS
@@ -68,14 +68,15 @@ const Home = ({ search_term, user }) => {
         fetchProducts()
     }, [search_term, meta.page]);
 
-    function addToCart(e) {
+    function addToCart(e, product) {
         e.preventDefault()
 
         if (!redux_user) {
             navigate("/login")
         }
-        
-        dispatch(setCart())
+
+        dispatch(reduxAddToCart(product))
+
         console.log("add to cart")
     }
 
@@ -137,7 +138,7 @@ const Home = ({ search_term, user }) => {
                                             &&
                                         } */}
                                         <BuyerComponent user={user}>
-                                            <button className='btn btn-secondary' onClick={addToCart}>Add To Cart</button>
+                                            <button className='btn btn-secondary' onClick={(e) => addToCart(e, product)}>Add To Cart</button>
                                         </BuyerComponent>
                                         <RoleComponent role="seller">
                                             <>

@@ -1,0 +1,1 @@
+const checkAuthnetication = (req, res, next) => { }

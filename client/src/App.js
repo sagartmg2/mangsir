@@ -13,6 +13,11 @@ import Cart from "./page/Cart";
 import { setCart } from "./redux/Slice/CartSlice";
 
 function App() {
+  // http://localhost:8000/products
+
+  axios.get("http://localhost:8000/products")
+
+  return <>cors</>
 
   const dispatch = useDispatch()
 

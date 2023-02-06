@@ -20,9 +20,31 @@ app.use("", (req, res) => {
     })
 })
 app.use("", (err, req, res, next) => {
-    res.status(500).send({
-        msg: "Server Error"
-    })
+    console.log(err.name)
+
+    if (err.name == "ValidationError") {
+
+        let errors = [];  //{}
+        let errors_entries = Object.entries(err.errors)
+        console.log(errors);
+        errors_entries.forEach(err => {
+            let obj = {
+                msg: err[1].message,
+                param: err[0]
+            }
+            errors.push(obj)
+        })
+        res.status(400).send({
+            msg: "validation  Error",
+            errors: errors,
+            test: err.errors,
+        })
+    } else {
+        res.status(500).send({
+            msg: "Server Error"
+        })
+
+    }
 })
 
 

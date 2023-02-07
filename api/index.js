@@ -3,6 +3,7 @@ const express = require("express")
 const auth_route = require("./route/auth")
 const product_route = require("./route/product")
 
+require('dotenv').config()
 const app = express()
 app.use(express.json())
 require("./config/database")
@@ -41,7 +42,8 @@ app.use("", (err, req, res, next) => {
         })
     } else {
         res.status(500).send({
-            msg: "Server Error"
+            msg: "Server Error",
+            error: err.message
         })
 
     }

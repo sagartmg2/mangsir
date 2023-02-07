@@ -26,9 +26,9 @@ const UserSchema = new Schema({
         type: String,
         required: true,
         minLength: 8,
-        get: function () {
-            return "**"
-        },
+        // get: function () {
+        //     return "**"
+        // },
         select: false
     },
     role: {

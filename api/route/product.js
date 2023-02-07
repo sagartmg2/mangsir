@@ -1,11 +1,9 @@
 const express = require("express");
+const { index, store } = require("../controller/product");
+const { isAuthenticated, isSeller } = require("../middleware/auth");
 const router = express.Router()
 
-router.get("", (req, res) => {
-    res.send("products...")
-})
-router.post("", (req, res) => {
-    res.send(" create..products...")
-})
+router.get("", index)
+router.post("", isAuthenticated, isSeller, store)
 
 module.exports = router

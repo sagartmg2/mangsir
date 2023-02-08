@@ -6,6 +6,7 @@ const product_route = require("./route/product")
 require('dotenv').config()
 const app = express()
 app.use(express.json())
+app.use(express.static('uploads'))
 require("./config/database")
 
 app.use("/api", auth_route)
@@ -20,6 +21,7 @@ app.use("", (req, res) => {
         msg: "resource not found"
     })
 })
+
 app.use("", (err, req, res, next) => {
     console.log(err.name)
 

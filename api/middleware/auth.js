@@ -1,22 +1,40 @@
 const jwt = require("jsonwebtoken")
 
 const isSeller = (req, res, next) => {
-    let sellter = true;
+
+    let sellter = false;
+
+    if (req.user.role == "seller") {
+        sellter = true;
+    }
+
     if (sellter) {
         next()
     } else {
-        res.status(403).send({
-            msg: "Forbidden"
+        return res.status(403).send({
+            msg: "Forbidden - only allowed for sellers"
         })
     }
 }
 
 const isAuthenticated = (req, res, next) => {
-    let token = req.headers.authorization.split(" ")[1]
 
-    var decoded = jwt.verify(token, process.env.JWT_SECRET);
-    console.log(decoded);
-    req.user = decoded
+    try {
+        let token = req.headers.authorization.split(" ")[1]
+        var decoded = jwt.verify(token, process.env.JWT_SECRET);
+
+        if (decoded) {
+            req.user = decoded;
+            next()
+        }
+    }
+    catch (err) {
+        return res.status(401).send({
+            msg: "Invalid Token"
+        })
+    }
+
+
 }
 
 module.exports = {

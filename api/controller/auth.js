@@ -57,7 +57,7 @@ const login = async (req, res) => {
 
             let temp = user.toObject();
             delete temp.password
-            var token = jwt.sign(temp, process.env.JWT_SECRET);
+            var token = jwt.sign(temp, process.env.JWT_SECRET,{ expiresIn: '7d' });
 
             return res.send({
                 token,

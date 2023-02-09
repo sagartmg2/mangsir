@@ -16,6 +16,22 @@ const isSeller = (req, res, next) => {
         })
     }
 }
+const isBuyer = (req, res, next) => {
+
+    let buyer = false;
+
+    if (req.user.role == "buyer") {
+        buyer = true;
+    }
+
+    if (buyer) {
+        next()
+    } else {
+        return res.status(403).send({
+            msg: "Forbidden - only allowed for buyer"
+        })
+    }
+}
 
 const isAuthenticated = (req, res, next) => {
 
@@ -39,5 +55,6 @@ const isAuthenticated = (req, res, next) => {
 
 module.exports = {
     isSeller,
+    isBuyer,
     isAuthenticated
 }

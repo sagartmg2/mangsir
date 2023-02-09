@@ -2,6 +2,7 @@ const express = require("express")
 
 const auth_route = require("./route/auth")
 const product_route = require("./route/product")
+const order_route = require("./route/order")
 
 require('dotenv').config()
 const app = express()
@@ -11,6 +12,7 @@ require("./config/database")
 
 app.use("/api", auth_route)
 app.use("/api/products", product_route)
+app.use("/api/orders", order_route)
 
 /* 
     error - middleware
